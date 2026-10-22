@@ -1,0 +1,14 @@
+flowchart LR
+    subgraph Mobile[Android / Flutter]
+        UI[Input and result screens]
+        Client[API client]
+        UI --> Client
+    end
+    subgraph Backend[Python / FastAPI]
+        API[Analyze endpoint]
+        Valid[Input validation]
+        Model[NLP inference component]
+        API --> Valid --> Model
+    end
+    Client -->|HTTPS JSON| API
+    API -->|Risk JSON| Client

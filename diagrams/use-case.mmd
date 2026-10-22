@@ -1,0 +1,7 @@
+flowchart LR
+    U[Mobile user] --> UC1[Enter or paste message]
+    U --> UC2[Request risk assessment]
+    U --> UC3[Read risk explanation]
+    U --> UC4[Retry after error]
+    UC2 -.-> UC5[Validate input]
+    UC2 -.-> UC6[Analyze text]
