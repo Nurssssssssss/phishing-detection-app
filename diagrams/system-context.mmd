@@ -1,5 +1,7 @@
+
 flowchart LR
-    U[Mobile user] -->|Pastes text| A[Phishing Detection Application]
-    A -->|Risk and explanation| U
-    A -->|Analysis request via API| M[Detection model service]
-    M -->|Model assessment| A
+    User["Android User"]
+    System["Phishing Detection System"]
+
+    User -->|"Submits suspicious message"| System
+    System -->|"Returns risk assessment and explanation"| User
