@@ -1,9 +1,15 @@
 # Project Proposal — Phishing Detection App
 
-**Program / group:** Software Engineering / SE-2413  
-**Team:** Nurbolat Seilkhanov; Dulat Amangeldi (team update pending supervisor approval)  
-**Supervisor:** Turarova Marzhan Kabdykalievna (per project plan)  
-**Stage:** proposal draft, 22 October 2026
+**Program / group:** Software Engineering / SE-2413
+
+**Team:**
+- Nurbolat Seilkhanov — Mobile / Flutter Developer
+- Dulat Amangeldi — AI/ML Developer
+- Erasyl Zhagypar — Backend Developer
+
+**Supervisor:** Turarova Marzhan Kabdykalievna
+
+**Stage:** Proposal draft, 22 October 2026
 
 ## 1. Problem statement
 Suspicious text messages that impersonate banks, government services and logistics services are a risk for mobile users in Kazakhstan. Recipients may have difficulty noticing scam indicators, especially when messages are written in local languages and mimic familiar institutions. **The scale of the problem and the users' needs must be validated with real sources and interviews.**
@@ -57,3 +63,9 @@ Proposal; evidence from interviews; literature review; comparison tables; requir
 
 ## 11. Open approvals
 Confirm team membership, supervisor, MVP scope, data legality, selected stack, metrics, meeting feedback.
+The official project team consists of three members.
+Nurbolat temporarily assists with backend documentation and
+architecture while Erasyl is unavailable.
+
+The supervisor's approval of the technical decisions,
+MVP scope, and evaluation criteria is pending.
