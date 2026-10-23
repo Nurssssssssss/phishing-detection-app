@@ -1,14 +1,10 @@
-flowchart LR
-    subgraph Mobile[Android / Flutter]
-        UI[Input and result screens]
-        Client[API client]
-        UI --> Client
-    end
-    subgraph Backend[Python / FastAPI]
-        API[Analyze endpoint]
-        Valid[Input validation]
-        Model[NLP inference component]
-        API --> Valid --> Model
-    end
-    Client -->|HTTPS JSON| API
-    API -->|Risk JSON| Client
+
+flowchart TD
+    Flutter["Flutter / Dart Mobile App"]
+    API["Python / FastAPI Backend"]
+    Model["Python NLP / ML Classifier"]
+
+    Flutter -->|"HTTPS / JSON request"| API
+    API -->|"Text for analysis"| Model
+    Model -->|"Prediction and indicators"| API
+    API -->|"Risk result / JSON"| Flutter

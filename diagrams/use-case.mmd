@@ -1,7 +1,14 @@
-flowchart LR
-    U[Mobile user] --> UC1[Enter or paste message]
-    U --> UC2[Request risk assessment]
-    U --> UC3[Read risk explanation]
-    U --> UC4[Retry after error]
-    UC2 -.-> UC5[Validate input]
-    UC2 -.-> UC6[Analyze text]
+
+flowchart TD
+    User["Android User"]
+    UC1(["Enter or Paste Message"])
+    UC2(["Request Message Analysis"])
+    UC3(["View Risk Assessment"])
+    UC4(["View Suspicious Indicators"])
+    UC5(["View Error Message"])
+
+    User --> UC1
+    User --> UC2
+    User --> UC3
+    User --> UC4
+    User --> UC5

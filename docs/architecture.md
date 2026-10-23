@@ -35,3 +35,28 @@ Validation error: HTTP 422 or a documented 4xx error object; system error: sanit
 
 ## Open design points
 Hosting choice, authentication/rate limits, optional storage and explainability method require research and team approval.
+
+
+## Architecture Diagrams
+
+The proposed system architecture is represented by three diagrams:
+
+1. System Context Diagram — shows the interaction between the Android user and the Phishing Detection System.
+2. Use Case Diagram — describes the main user interactions, including message input, analysis requests, result viewing, and error handling.
+3. Component Diagram — illustrates communication between the Flutter mobile application, FastAPI backend, and NLP/ML classifier.
+
+Editable Mermaid source files and exported SVG diagrams are available in the `diagrams/` directory.
+
+| Diagram | Editable source | Viewable diagram |
+|---|---|---|
+| System Context | [system-context.mmd](../diagrams/system-context.mmd) | [system-context.svg](../diagrams/system-context.svg) |
+| Use Case | [use-case.mmd](../diagrams/use-case.mmd) | [use-case.svg](../diagrams/use-case.svg) |
+| Component | [component.mmd](../diagrams/component.mmd) | [component.svg](../diagrams/component.svg) |
+
+## Architecture Responsibilities
+
+- Nurbolat Seilkhanov: Flutter mobile application, user interface, API integration, and temporary backend documentation support.
+- Dulat Amangeldi: NLP/ML model design, classification approach, model evaluation, and prediction output.
+- Erasyl Zhagypar: Backend architecture, API design, input validation, data handling, and integration.
+
+The architecture is preliminary and subject to supervisor review.
