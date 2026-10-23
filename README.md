@@ -58,3 +58,14 @@ No executable MVP yet. Setup and testing commands will be added once code exists
 
 ## Privacy and ethics
 Do not upload real messages, OTP codes, passwords, private datasets or secrets. Use synthetic examples. Research participants must be informed about the use of their feedback and their responses should be anonymized.
+
+
+## Project Management
+
+**YouTrack:** https://aitu-se2413-phishing-2026.youtrack.cloud/projects/PDA
+
+**GitHub:** https://github.com/Nurssssssssss/phishing-detection-app
+
+**Current stage:** Pre-defense preparation
+
+**Deadline:** October 24, 2026
