@@ -60,3 +60,14 @@ Editable Mermaid source files and exported SVG diagrams are available in the `di
 - Erasyl Zhagypar: Backend architecture, API design, input validation, data handling, and integration.
 
 The architecture is preliminary and subject to supervisor review.
+
+
+
+## Data Flow Diagram
+
+The Data Flow Diagram shows how a manually submitted message moves through input validation, phishing classification, and risk assessment.
+
+![Data Flow Diagram](../diagrams/data-flow.svg)
+
+Editable source: [data-flow.mmd](../diagrams/data-flow.mmd)
+  
