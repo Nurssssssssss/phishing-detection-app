@@ -1,0 +1,21 @@
+
+flowchart LR
+    U["Android User"]
+
+    P1(["1.0 Submit Message"])
+    P2(["2.0 Validate Message"])
+    P3(["3.0 Analyze Message"])
+    P4(["4.0 Prepare Risk Result"])
+    P5(["5.0 Display Assessment"])
+
+    M["NLP / ML Model"]
+
+    U -->|"Entered message text"| P1
+    P1 -->|"Submitted text"| P2
+    P2 -->|"Valid message"| P3
+    P2 -->|"Validation error"| P5
+    P3 -->|"Text for classification"| M
+    M -->|"Prediction and indicators"| P3
+    P3 -->|"Analysis output"| P4
+    P4 -->|"Risk level and explanation"| P5
+    P5 -->|"Result or error"| U
