@@ -1,71 +1,57 @@
-# Project Proposal — Phishing Detection App
+# Project Proposal — Explainable Multilingual Fraud Risk Assessment
 
-**Program / group:** Software Engineering / SE-2413
+**Proposed official English topic:** Development of a Multilingual Mobile Application for Explainable Fraud Risk Assessment in Text Messages
 
-**Team:**
-- Nurbolat Seilkhanov — Mobile / Flutter Developer
-- Dulat Amangeldi — AI/ML Developer
-- Erasyl Zhagypar — Backend Developer
+**Proposed Russian topic:** Разработка многоязычного мобильного приложения для объяснимой оценки риска мошенничества в текстовых сообщениях
 
-**Supervisor:** Turarova Marzhan Kabdykalievna
-
-**Stage:** Proposal draft, 22 October 2026
+**Programme / group:** Software Engineering / SE-2413  
+**Team:** Nurbolat Seilkhanov (Mobile / Flutter), Dulat Amangeldi (AI/ML), Erasyl Zhagypar (Backend)  
+**Supervisor:** Turarova Marzhan Kabdykalievna  
+**Revision:** 31 October 2026; pending university/supervisor approval. The initial proposal was prepared on 22 October.
 
 ## 1. Problem statement
-Suspicious text messages that impersonate banks, government services and logistics services are a risk for mobile users in Kazakhstan. Recipients may have difficulty noticing scam indicators, especially when messages are written in local languages and mimic familiar institutions. **The scale of the problem and the users' needs must be validated with real sources and interviews.**
+Mobile users receive legitimate and potentially fraudulent text messages that may imitate banks, government services or delivery providers. Generic binary phishing detection is not always an adequate user-facing outcome: users also need a cautious assessment of potential risk and concrete, understandable warning signs. In Kazakhstan, evaluating Russian and Kazakh texts separately is especially relevant. The prevalence of scams and user needs require verifiable sources and appropriately documented user research.
 
-## 2. Target users
-Android smartphone users in Kazakhstan who receive messages in Russian or Kazakh and wish to check potentially suspicious text before taking action. Secondary audience: nontechnical users who benefit from clear, accessible explanations.
+## 2. Aim and scope
+Design, implement and evaluate an Android-first mobile application that accepts manually entered Kazakh or Russian text messages, produces an NLP/ML-assisted fraud risk assessment, and provides understandable indicators supporting the warning.
 
-## 3. Goal
-Design and subsequently build an Android-first mobile application that evaluates the risk of manually submitted messages using NLP/ML and shows an understandable, cautious explanation.
+**Research focus:** (i) multilingual performance; (ii) mapping observable text indicators to understandable explanations; (iii) evaluation of model errors and explanation validity. This is a revised task definition, **not an assertion that no similar thesis exists**.
 
-## 4. Objectives
-1. Validate user needs through 3–5 discussions.
-2. Study scientific methods and existing solutions.
-3. Compare technical approaches and select a justified stack.
-4. Specify testable functional and nonfunctional requirements.
-5. Design system context, use cases and component architecture.
-6. Prototype the main UI screens.
-7. Define measurable validation criteria, baselines and test procedures.
-8. Implement and evaluate the solution in subsequent development phases.
+## 3. Objectives
+1. Review scientific literature, existing systems and verified user needs.
+2. Audit licensed datasets, language coverage, labels, deduplication and privacy.
+3. Establish TF-IDF + Logistic Regression / Linear SVM baselines.
+4. Explore a multilingual alternative only if data and resources permit.
+5. Specify evidence-linked indicators (e.g., suspicious URL patterns, pressure wording, request for a verification code) and test whether the explanation reflects actual extracted signals.
+6. Build Flutter UX, FastAPI integration, validation and user-friendly error handling.
+7. Measure precision, recall, macro-F1, false positives/negatives, RU/KZ performance, real response latency, and explanation usefulness.
+8. Deliver a reproducible demonstration, documentation and defense.
+
+## 4. Users
+Android smartphone users in Kazakhstan who want to check a suspicious message before acting. Users who prefer a clear risk explanation rather than an opaque label are an intended audience.
 
 ## 5. In-scope MVP
-- Manual text entry / paste.
-- Input validation and API submission.
-- Risk assessment by a model (implementation planned).
-- Risk explanation based on available evidence/indicators.
-- Handling unsuccessful or unavailable analysis.
+- Manual text entry/paste, input validation, analysis request.
+- Predicted risk category with careful advisory language.
+- Real extracted indicators with short human-readable explanation; never fabricate rationale.
+- Handling service timeout, network and input errors.
+- Russian/Kazakh text handling with separately reported empirical limits.
+- Default avoidance of persistent raw-message storage.
 
-## 6. Out of scope for required MVP
-- Automatic reading of SMS, notifications or private chats.
-- Interception of personal messages without explicit user action.
-- Guaranteed fraud detection or replacement for official verification.
-- Required iOS release.
+## 6. Excluded from mandatory MVP
+- Automatic reading of SMS/notifications/private chats.
+- Required iOS app or on-device / offline inference.
+- Automatic blocking, message interception, account access.
+- Guaranteed scam identification or unsupported model certainty claims.
 
 ## 7. Preliminary architecture
-Flutter/Dart client -> Python/FastAPI API -> NLP classifier -> risk response. These are **candidates**, not finalized choices; see technology comparison.
+Flutter / Android → HTTPS `POST /api/v1/analyze` → FastAPI → NLP classifier and indicator extraction → response with risk level and explanation. Candidate components are subject to engineering and supervisor review.
 
-## 8. Expected deliverables
-Proposal; evidence from interviews; literature review; comparison tables; requirements; editable diagrams; linked UX prototype; testing/evaluation plan; GitHub repository; YouTrack tracking and documented supervisor feedback.
+## 8. Planned evaluation
+Held-out, leakage-controlled labelled dataset; class-wise precision/recall/F1 and macro-F1; confusion matrices; RU, KZ and code-switched test sets where supported. Explanation checks: indicator-to-source alignment, comprehensibility and cautiousness. App and backend: contract tests, error paths, latency, logs and basic usability. Metrics and thresholds must be agreed after examining actual data.
 
-## 9. Success criteria (proposed, pending agreement)
-- Demonstrate end-to-end manual message assessment in later MVP.
-- Report Precision, Recall and F1-score on held-out labeled samples, separately by language when feasible.
-- Check functional requirements using reproducible test cases.
-- Report failure cases, latency and limitations rather than claiming guaranteed accuracy.
+## 9. Risks
+Limited Kazakh examples; invalid cross-language generalizations; poorly supported explanations; class imbalance; sensitive content; false positives/negatives; delays; possible overlapping thesis topics.
 
-## 10. Risks and mitigations
-- Insufficient quality Kazakh dataset -> investigate coverage; document limitations; avoid unsupported performance promises.
-- Sensitive message contents -> avoid raw-message storage by default; sanitize logs; use synthetic test cases.
-- Model false negatives / false positives -> clear disclaimer and evaluation against baseline.
-- Limited time / team capacity -> manual-input-only MVP and staged implementation.
-
-## 11. Open approvals
-Confirm team membership, supervisor, MVP scope, data legality, selected stack, metrics, meeting feedback.
-The official project team consists of three members.
-Nurbolat temporarily assists with backend documentation and
-architecture while Erasyl is unavailable.
-
-The supervisor's approval of the technical decisions,
-MVP scope, and evaluation criteria is pending.
+## 10. Status / next decisions
+The implementation, performance claims and supervisor approval are **pending**. Confirm official new title, uniqueness, data sources, planned evaluation thresholds, future deadlines, UX prototype and API contract. Task tracking is in YouTrack (PDA), code history in GitHub.
