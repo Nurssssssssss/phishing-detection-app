@@ -1,71 +1,58 @@
-# Phishing Detection App
+# Explainable Multilingual Fraud Risk Assessment — Thesis Project
 
-**Status:** Planning / Pre-defense preparation (October 2026)
+**Official topic proposed for approval:** Development of a Multilingual Mobile Application for Explainable Fraud Risk Assessment in Text Messages
 
-Mobile application concept for identifying phishing and fraudulent text messages for users in Kazakhstan. The MVP allows users to manually paste text and receive an explanatory risk assessment. **The project is not a finished application.**
+**Русское название:** Разработка многоязычного мобильного приложения для объяснимой оценки риска мошенничества в текстовых сообщениях
 
-## Problem
-Fraudulent messages may imitate banks, eGov/1414, or delivery companies. Users need help recognizing suspicious signs. The solution is advisory and cannot guarantee that any message is safe or malicious.
+**Status:** Thesis topic revision submitted for supervisor review (31 October 2026). This repository currently contains design, research and pre-implementation materials; **a finished mobile application or validated detection model is not yet available**.
 
-## Team and responsibilities
-- Nurbolat Seilkhanov — Mobile/Flutter, UX, API/backend planning, architecture, GitHub and YouTrack coordination (temporarily covering backend responsibilities).
-- Dulat Amangeldi — AI/ML, literature review, dataset research and evaluation.
-- Team composition and reassignment: **pending supervisor confirmation**.
-- Supervisor listed in the planning document: Turarova Marzhan Kabdykalievna.
+## Research focus and differentiation
+Instead of only detecting phishing, the project will **assess message fraud risk and present understandable, evidence-linked warning indicators**. It targets **Kazakh and Russian** text messages and relevant Kazakhstan scenarios. The research includes language-specific model evaluation and assessment of explanation accuracy/usability.
 
-## MVP scope
-1. User manually inputs/pastes a text message.
-2. Android Flutter app sends a request to the backend.
-3. Backend validates input and invokes a detection model.
-4. App displays risk category and available reasons, with a disclaimer.
-5. App handles network and input errors.
+The new title has **not** yet been approved by AITU. Its distinctness from any unknown duplicate topic must be checked by the supervisor.
 
-**Outside required MVP:** automatic collection of SMS/notifications, full device monitoring, access to user accounts, or claims of guaranteed detection.
+## Team
+- **Nurbolat Seilkhanov** — Flutter/Android, UX, results/explanations interface, documentation and project coordination; temporary support for backend documentation.
+- **Dulat Amangeldi** — NLP/ML, datasets, baseline, cross-language evaluation and explanation verification.
+- **Erasyl Zhagypar** — FastAPI backend, validation, integration, security and deployment.
+- **Supervisor:** Turarova Marzhan Kabdykalievna.
+- **Programme / group:** Software Engineering / SE-2413.
 
-## Candidate technologies (pending comparative review)
-- Client: Flutter/Dart, Android first.
-- API: Python/FastAPI.
-- Model: Python, scikit-learn NLP baseline; alternatives to be compared.
-- Storage: minimal; avoid retaining message content by default.
+## Mandatory MVP (planned)
+1. User manually enters or pastes suspicious message text.
+2. Flutter sends a validated request over HTTPS to `POST /api/v1/analyze`.
+3. FastAPI invokes the NLP/ML risk assessment and an indicator extraction method.
+4. The app displays a cautious risk category and **indicators actually supported by the analysis**.
+5. The app handles input/network errors and states that the result is advisory.
 
-## Project links
-- YouTrack: **TODO: insert actual link**
-- Figma prototype: **TODO: insert actual link**
-- Supervisor feedback: [docs/supervisor-feedback.md](docs/supervisor-feedback.md)
+**Excluded from mandatory MVP:** automatic reading/interception of SMS or chat messages, required iOS release, guaranteed detection, unapproved storage of private texts, and mandatory on-device inference.
 
-## Documentation
-- [Proposal](docs/project-proposal.md)
-- [User research](docs/user-research.md)
-- [Literature review](docs/literature-review.md)
-- [Dataset research](docs/dataset-research.md)
-- [Competitor analysis](docs/competitor-analysis.md)
-- [Technology comparison](docs/technology-comparison.md)
+## Candidate stack (not yet fully implemented)
+Flutter/Dart (Android first) → FastAPI/Python → NLP/ML (TF-IDF + Logistic Regression / Linear SVM baseline; optional multilingual advanced model). Server-side message storage is not required by default.
+
+## Project resources
+- [GitHub repository](https://github.com/Nurssssssssss/phishing-detection-app)
+- [Pull Requests](https://github.com/Nurssssssssss/phishing-detection-app/pulls)
+- [YouTrack PDA](https://aitu-se2413-phishing-2026.youtrack.cloud/projects/PDA)
+- [Documentation](docs/)
+- [Diagrams](diagrams/)
+- [Proposed topic revision and change log](docs/topic-change-2026-10-31.md)
+- [Updated thesis work plan](docs/thesis-work-plan-2026-10-31.md)
+- [Project proposal](docs/project-proposal.md)
 - [Requirements](docs/requirements.md)
 - [Architecture](docs/architecture.md)
-- [Test plan](docs/test-plan.md)
+- [Dataset research](docs/dataset-research.md)
+- [Technology comparison](docs/technology-comparison.md)
+- [Evaluation plan](docs/verification_and_evaluation_plan.md)
+- [Literature review](docs/final_literature_review.md)
 - [Supervisor feedback](docs/supervisor-feedback.md)
 
-## Diagrams and prototype
-- Editable Mermaid sources in `diagrams/`: context, use cases, components.
-- Export readable PNG/SVG versions before submission (TODO).
-- UX wireframe plan in `prototype/README.md`; actual Figma link required (TODO).
+**UX prototype:** draft images under [prototype/](prototype/); a verified Figma link has not been provided.
 
-## Current status / remaining work
-This repository contains **initial planning drafts**, not verified completed research. Required tasks: 3–5 genuine user discussions, >=12 genuine sources including >=8 scientific publications, evidence-backed comparison of 3–5 real systems against 6–10 criteria, decision comparisons, UX prototype, finalized acceptance tests, supervisor review, populated YouTrack and authentic gradual Git history.
+## Current evidence and known limitations
+Research drafts and architecture diagrams exist, but the dataset-research sheet has no approved final dataset. Survey percentages in `validation_of_relevance.md` require original anonymized responses/methodology for independent verification. Some literature claims require source-level checking before final thesis submission.
 
-## Run and test
-No executable MVP yet. Setup and testing commands will be added once code exists.
+**Pull request #5** (additional data-flow diagram) was still open when this revision was prepared; its files must not be described as present in `main` until merged.
 
 ## Privacy and ethics
-Do not upload real messages, OTP codes, passwords, private datasets or secrets. Use synthetic examples. Research participants must be informed about the use of their feedback and their responses should be anonymized.
-
-
-## Project Management
-
-**YouTrack:** https://aitu-se2413-phishing-2026.youtrack.cloud/projects/PDA
-
-**GitHub:** https://github.com/Nurssssssssss/phishing-detection-app
-
-**Current stage:** Pre-defense preparation
-
-**Deadline:** October 24, 2026
+Never commit raw personal messages, OTP codes, keys or secrets. Do not persist message bodies or log them by default. Risk levels are estimates and must not be presented as guarantees that a message is safe or malicious.
