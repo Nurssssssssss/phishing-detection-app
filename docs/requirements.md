@@ -1,9 +1,9 @@
-# Software Requirements Specification (SRS)
+# Software Requirements Specification (SRS) — Explainable Multilingual Fraud Risk
 
-**Project:** Phishing Detection App  
+**Project (proposed):** Development of a Multilingual Mobile Application for Explainable Fraud Risk Assessment in Text Messages  
 **Program / Group:** Software Engineering / SE-2413  
 **Team:** Nurbolat Seilkhanov, Dulat Amangeldi, Erasyl Zhagypar  
-**Status:** Initial requirements specification  
+**Status:** Revised draft (31 October 2026); proposed topic not yet approved  
 **Date:** 23 October 2026  
 **Related YouTrack Issue:** PDA-7
 
@@ -13,7 +13,7 @@
 
 ### 1.1 Purpose
 
-The purpose of this document is to define the functional and non-functional requirements for a mobile application that helps users identify potentially phishing or fraudulent text messages using Natural Language Processing (NLP) and Machine Learning (ML).
+The purpose of this document is to define the functional and non-functional requirements for a mobile application that helps users assess potential fraud risk in Kazakh/Russian text messages and view evidence-linked, understandable warnings using Natural Language Processing (NLP) and Machine Learning (ML).
 
 The document defines the expected system behavior, priorities, constraints, and acceptance criteria.
 
@@ -44,13 +44,13 @@ Functional requirements describe what the application must do.
 | FR-05 | The Backend API shall accept text analysis requests. | Must | A valid request receives a correctly structured response. |
 | FR-06 | The system shall analyze message text using an NLP/ML classifier. | Must | A supported input produces a model classification result. |
 | FR-07 | The application shall display the estimated risk level. | Must | The result screen shows the returned risk category. |
-| FR-08 | The application shall display an understandable explanation of available suspicious indicators. | Must | The result includes an explanation supported by the implemented analysis method. |
+| FR-08 | The application shall display understandable, evidence-linked suspicious indicators. | Must | Every displayed indicator corresponds to an observed signal; an unsupported rationale must not be generated. |
 | FR-09 | The application shall handle server or network failures. | Must | Users receive an understandable error message when analysis is unavailable. |
 | FR-10 | The application shall display a loading state during analysis. | Should | A loading indicator appears while awaiting the API response. |
 | FR-11 | The system should support Russian-language message analysis. | Must | Russian test messages can be processed and evaluated. |
 | FR-12 | The system should support Kazakh-language message analysis. | Must | Kazakh test messages can be processed and evaluated; limitations are reported. |
 | FR-13 | The application should provide guidance about the limitations of automated detection. | Should | Users can view information explaining that the analysis is not a guarantee of safety. |
-| FR-14 | The application may provide a local history of previous assessments. | Could | Users can view previous results if this functionality is implemented. |
+| FR-14 | The application may provide a local history of previous assessments. | Could | Local history works only if implemented with appropriate privacy controls. |
 
 ---
 
@@ -178,7 +178,7 @@ Nurbolat temporarily supports Backend documentation while Erasyl is unavailable.
 
 ## 9. Current Status and Open Decisions
 
-This document defines the preliminary requirements for the Phishing Detection App.
+This document defines the preliminary requirements for the revised multilingual explainable fraud-risk assessment application.
 
 The following decisions require further validation or supervisor approval:
 
@@ -190,3 +190,12 @@ The following decisions require further validation or supervisor approval:
 - Detailed privacy and data retention policy
 
 **Status:** Draft prepared for the first pre-defense checkpoint. Implementation and acceptance testing will take place during subsequent development phases.
+## 10. Additional explainability requirements — 31 October 2026
+
+- **FR-15 (Must):** Output an advisory disclaimer; never guarantee that a message is safe or fraudulent.
+- **FR-16 (Must):** Make suspicious indicators traceable to actual text features or model outputs that have been validated. Rule-based cues must not be represented as faithful explanations of an opaque model decision.
+- **FR-17 (Must):** Test positive and negative indicator cases, including messages where no reliable explanation can be provided.
+- **NFR-11 (Must):** Document separate Russian and Kazakh evaluation results when sufficient labelled test samples exist, and state the limits otherwise.
+- **NFR-12 (Must):** Treat any numerical confidence as uncalibrated unless a calibration study supports its interpretation.
+
+These requirements are proposed research and implementation objectives, not claims of existing functionality or supervisor approval.
